@@ -1,0 +1,18 @@
+<users>
+    <user>
+        <username>testuser@example.com</username>
+        <password>password123</password>
+    </user>
+    <user>
+        <username>admin@example.com</username>
+        <password>adminpass</password>
+    </user>
+     <user>
+        <username>michal@gmail.com</username>
+        <password>password1234</password>
+    </user>
+    <user>
+        <username>motorola@gmail.com</username>
+        <password>openday24</password>
+    </user>
+</users>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! </title>
+    
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; }
+        img { max-width: 400px; margin: 20px auto; }
+    </style>
+</head>
+<body>
+    <h1>You've managed to log in, congratulations! Take a look at this cat</h1>
+    <img src="{{ url_for('static', filename='images/cat.jpg') }}" alt="Cat">
+
+    
+</body>
+</html>

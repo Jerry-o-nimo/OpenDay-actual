@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>MotoTasks</title>
+
+    <style>
+        html {
+            background-color: #005fbe;
+        }
+
+        .task {
+            border: 0.2vh solid #2e2e2e;
+            padding: 1vh;
+            margin: 1vh 0;
+            border-radius: 1vh;
+
+            background-color: #ffffff;
+        }
+
+        .task.correct {            
+            border: 0.5vh solid green;
+        }
+
+        .task-details {
+            display: none;
+        }
+
+        .task .show-details {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .task-title {
+            background-color: #005fbe;
+            padding: 0.2%;         
+            padding-left: 1%;  
+            border-radius: 1vh;
+
+            font-size: 3vh;
+            font-family: "Roboto", sans-serif;
+            font-weight: 375;
+            font-style: normal;
+            color: #fff;
+        }
+
+        .task-title.correct {
+            background-color: rgb(9, 202, 9);
+        }
+
+        .page-title {
+            width: 100%;
+            font-size: 5vw;
+            font-family: "Roboto", sans-serif;
+            font-weight: 375;
+            font-style: normal;
+            color: #fff;          
+
+           
+            text-align: center;
+            top: 0; /* Ensures it stays at the top of the page */
+            left: 0;
+            z-index: 1000; 
+        }
+
+        p {
+            font-family: "Roboto", sans-serif;
+            padding-left: 1vh;
+            font-weight: 300;
+        }
+
+        input {
+            margin-left: 0.5%;            
+        }
+
+       
+        
+    </style>
+</head>
+<body>
+
+<div class="page-title">MOTOROLA SOLUTIONS TASK MASTER</div>
+
+<div class="task" id="task1">
+    <div class="task-title">
+        <p>Task 1: Say hello to the Wireshark</p>
+    </div>
+    <div class="task-details" style="display: block;">
+        <p><b>Description:</b> Figure out how can you start Wireshark on your laptop</p>
+        <p><b>Hint:</b> You should have a look at the task bar, there's something sharky down there</p>
+        <input type="text" id="answer1" placeholder="Part of which animals body is used as Wireshark icon?" style="width: 26vw;">
+        <button onclick="checkAnswer('task1', 'Shark Fin')">Submit</button>
+    </div>
+</div>
+
+<div class="task" id="task2">
+    <div class="task-title">
+        <p>Task 2: Don't be shy, capture something!</p>
+    </div>
+    <div class="task-details">
+        <p><b>Description:</b> Start a capture by choosing an interface to sniff on</p>
+        <p><b>Hint:</b> If you don't know which interface should you choose you can always have a look at the small line chart next to interface name - if it's moving it means that we have some traffic going on through this interface, and I bet you can't wait to listen to it! </p>
+        <input type="text" id="answer2" placeholder="Which interface were we just using to sniff the packets?" style="width: 26vw;"> 
+        <button onclick="checkAnswer('task2', 'Wi-Fi')">Submit</button>
+    </div>
+</div>
+
+<div class="task" id="task3">
+    <div class="task-title">
+        <p>Task 3: Filtering the noise out</p>
+    </div>
+    <div class="task-details">
+        <p><b>Description:</b>  Create some filters to help you to focus on relevant packets</p>
+        <p><b>Hint:</b> You can filter the traffic captured by Wireshark to only look for specific packets. Some examples: </p>
+        <p><i><b>ip.addr == 192.168.1.1 </b></i> - Show traffic to or from a specific IP address.</p>
+        <p><i><b>tcp.port == 80</b></i> - this one will display all TCP traffic on port 80 (HTTP traffic)</p>
+        <p><i><b>icmp</b></i> - shows only data sent using specific protocol, in this case ICMP traffic (e.g., ping requests and replies)</p>
+
+        <input type="text" id="answer3" placeholder="Which filter would you use to show only HTTPS packets? (HTTPS uses port 443)" style="width: 40vw;">
+        <button onclick="checkAnswer('task3', 'tcp.port == 443')">Submit</button>
+    </div>
+</div>
+
+<div class="task" id="task4">
+    <div class="task-title">
+        <p>Task 4: My data is secure, I've put it behind the password (and other jokes you can tell yourself )</p>
+    </div>
+    <div class="task-details">
+        <p><b>Description:</b> Start a capture in Wireshark by choosing the shark fin icon in the top left corner, then proceed to <a href="/login" target="_blank">login page</a> </p>
+        <p><b>Hint:</b> you can use previously created filter to only look for HTTP traffic, and remember that you are trying to sniff authentication info</p>
+        <input type="text" id="answer4" placeholder="What was the password used to log in?" style="width: 26vw;">
+        <button onclick="checkAnswer('task4', 'password123')">Submit</button>
+    </div>
+</div>
+
+<div class="task" id="task5">
+    <div class="task-title">
+        <p>Task 5: Wait a minute, I've just had this picture somewhere in here</p>
+    </div>
+    <div class="task-details">
+        <p><b>Description:</b>  Copy the picture from the network share onto your desktop, then remove and recover it from the captured network packets </hp4>
+        <p><b>Hint:</b> The protocol used to move files on this specific network share is called "SMB".</p>
+        <input type="text" id="answer5" placeholder="What kind of animal can be seen in this picture?"  style="width: 26vw;">
+        <button onclick="checkAnswer('task5', 'dog')">Submit</button>
+    </div>
+</div>
+
+<div class="task" id="task6">
+    <div class="task-title">
+        <p>Task 6: Can you hear the internet?</p>
+    </div>
+    <div class="task-details">
+        <p><b>Description:</b>  Open a capture file with sample RTP stream of a phonecall and figure out how to listen to the recorded conversation</p>
+        <p><b>Hint:</b> This is a phone call so it might be somehow related to the 'Telephony' stuff</p>
+        <input type="text" id="answer6" placeholder="What's the first word said by the person making the call?"  style="width: 26vw;">
+        <button onclick="checkAnswer('task6', 'test')">Submit</button>
+    </div>
+</div>
+
+<script>
+    function toggleDetails(taskId) {
+        const task = document.getElementById(taskId);
+        const details = task.querySelector('.task-details');
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function checkAnswer(taskId, correctAnswer) {
+        const task = document.getElementById(taskId);
+        const input = task.querySelector('input').value.trim();
+        const taskTitle = task.querySelector('.task-title');
+
+        if (input.toLowerCase() === correctAnswer.toString().toLowerCase()) {
+            task.classList.add('correct');            
+            task.querySelector('.task-details').style.display = 'none'; // Collapse the task
+            
+            if (taskTitle) {
+                taskTitle.style.backgroundColor = 'lightgreen'; // Or any color you prefer
+                
+            }
+
+
+            showNextTask(taskId); // Show the next task's details
+        } else {
+            alert('Incorrect answer. Try again!');
+        }
+    }
+
+    function showNextTask(currentTaskId) {
+        const currentTask = document.getElementById(currentTaskId);
+        const nextTask = currentTask.nextElementSibling;
+        if (nextTask && nextTask.classList.contains('task')) {
+            nextTask.querySelector('.task-details').style.display = 'block'; // Show the next task's details
+        } else {
+            // All tasks completed, redirect to thank_you.html
+            window.location.href = 'https://kahoot.it/';
+        }
+    }
+
+    // Initially hide all task details except the first one
+    window.onload = function() {
+        const tasks = document.querySelectorAll('.task-details');
+        tasks.forEach((details, index) => {
+            if (index > 0) {
+                details.style.display = 'none';
+            }
+        });
+    };
+</script>
+
+</body>
+</html>
